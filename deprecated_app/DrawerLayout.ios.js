@@ -53,15 +53,33 @@ class DrawerLayout extends Component {
       return this.refs.navigator;
     };
 
+    __render() {
+      return (
+        <Drawer
+          type="overlay"
+          content={<DrawerContent />}
+          tapToClose={true}
+          openDrawerOffset={0.2} // 20% gap on the right side of drawer
+          panCloseMask={0.2}
+          closedDrawerOffset={-3}
+          styles={STYLE.Drawer}
+          tweenHandler={(ratio) => ({
+            main: { opacity:(2-ratio)/2 }
+          })}
+          >
+            <MyScene />
+        </Drawer>
+      );
+    }
+
     render() {
-        let controlPanel = <DrawerContent />;
         return (
           <Drawer
             ref={(ref) => this._drawer = ref}
             type="overlay"
             captureGestures={true}
             negotiatePan={true}
-            content={controlPanel}
+            content={<DrawerContent />}
             tapToClose={true}
             openDrawerOffset={0.15}
             panCloseMask={0.5}
