@@ -28,4 +28,4 @@ Button.propTypes = {
   onPress: PropTypes.func.isRequired,
 }
 
-export default Button
+export default Button;

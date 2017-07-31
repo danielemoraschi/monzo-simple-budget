@@ -1,5 +1,6 @@
 import * as monzo from '../constants/Monzo';
 import {
+  UPD_ACCOUNT_CREDENTIALS,
   SAVE_ACCOUNT_CREDENTIALS,
   REQUEST_BALANCE,
   RECEIVE_BALANCE,
@@ -18,6 +19,19 @@ export const saveAccountCredentials = (user_id, account_id, access_token) => {
     user_id,
     account_id,
     access_token,
+  }
+}
+
+/**
+ * 
+ * @param {*} key 
+ * @param {*} value 
+ */
+export const updateAccountCredentials = (key, value) => {
+  return {
+    type: UPD_ACCOUNT_CREDENTIALS,
+    key,
+    value,
   }
 }
 

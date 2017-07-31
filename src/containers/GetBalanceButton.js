@@ -21,10 +21,12 @@ const mapStateToProps = (state, ownProps) => {
  */
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    onPress: () => dispatch((dispatch, getState) => getBalance(
-      getState().auth.account_id, 
-      getState().auth.access_token
-    ).then(obj => dispatch(obj))
+    onPress: () => dispatch(
+      (dispatch, getState) => getBalance(
+        getState().auth.account_id, 
+        getState().auth.access_token
+      )
+      .then(obj => dispatch(obj))
   )}
 }
 
