@@ -47,19 +47,16 @@ function receiveBalance(json) {
 /**
  * 
  */
-export const getBalance = () => {
-  return function (dispatch, getState) {
-    let authState = getState().auth;
-    return fetch(`${monzo.API_ENDPOINT}/balance?account_id=${authState.account_id}`, {
-        method: 'GET',
-        headers: {
-          'Authorization': 'Bearer ' + authState.access_token,
-        }
-      })
-      .then(
-        response => response.json(),
-        error => console.log('An error occured.', error)
-      )
-      .then(json => dispatch(receiveBalance(json)));
-  }
+export const getBalance = (account_id, access_token) => {
+  return fetch(`${monzo.API_ENDPOINT}/balance?account_id=${account_id}`, {
+      method: 'GET',
+      headers: {
+        'Authorization': 'Bearer ' + access_token,
+      }
+    })
+    .then(
+      response => response.json(),
+      error => console.log('An error occured.', error)
+    )
+    .then(json => receiveBalance(json));
 }

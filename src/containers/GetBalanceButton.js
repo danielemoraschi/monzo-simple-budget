@@ -9,7 +9,6 @@ import Button from '../components/Button';
  * @param {*} ownProps 
  */
 const mapStateToProps = (state, ownProps) => {
-  console.log(state)
   return {
     active: state.auth.authenticated,
   }
@@ -22,8 +21,11 @@ const mapStateToProps = (state, ownProps) => {
  */
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    onPress: () => dispatch(getBalance())
-  }
+    onPress: () => dispatch((dispatch, getState) => getBalance(
+      getState().auth.account_id, 
+      getState().auth.access_token
+    ).then(obj => dispatch(obj))
+  )}
 }
 
 const GetBalanceButton = connect(
