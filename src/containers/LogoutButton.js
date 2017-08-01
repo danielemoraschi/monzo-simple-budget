@@ -3,6 +3,8 @@ import { logout } from '../actions/monzo';
 import Button from '../components/Button';
 
 
+const TITLE = 'Logout';
+
 /**
  * 
  * @param {*} state 
@@ -10,6 +12,7 @@ import Button from '../components/Button';
  */
 const mapStateToProps = (state, ownProps) => {
   return {
+    title: ownProps.title || TITLE,
     active: state.auth.authenticated
   }
 }

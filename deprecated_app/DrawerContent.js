@@ -9,6 +9,13 @@ import STYLE from './styles';
 export default class DrawerContent extends Component {
 
     render() {
+        //const {navigate} = this.props.navigation;
+        //console.log(this.props)
+        // <Button
+        //   onPress={() => navigate('Profile', {name: 'Brent'})}
+        //   title="Go to Brent's profile"
+        // />
+
         let footer = <Text>
             Footer
         </Text>;

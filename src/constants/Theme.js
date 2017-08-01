@@ -15,14 +15,14 @@ const LIGHT_COLOR = "rgb(178, 205, 253)";
 
 export default uiTheme = {
   palette: {
-      primaryColor: PRIMARY_COLOR,
-      secondaryColor: SECONDARY_COLOR,
-      lightColor: LIGHT_COLOR,
+    primaryColor: PRIMARY_COLOR,
+    secondaryColor: SECONDARY_COLOR,
+    lightColor: LIGHT_COLOR,
   },
   toolbar: {
-      container: {
-        height: Platform.OS == 'ios' ? 90 : 70,
-        paddingTop: Platform.OS == 'ios' ? 20 : 0
-      },
+    container: {
+      height: Platform.OS == 'ios' ? 90 : 70,
+      paddingTop: Platform.OS == 'ios' ? 20 : 0
+    },
   },
 };

@@ -6,7 +6,6 @@
 import React, { Component } from 'react';
 import Drawer from 'react-native-drawer';
 import { View, Text, NavigatorIOS, Button } from 'react-native';
-import { ControlPanel } from './';
 
 import DrawerContent from './DrawerContent';
 import STYLE from './styles';

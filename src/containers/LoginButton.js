@@ -3,6 +3,8 @@ import { saveAccountCredentials } from '../actions/monzo';
 import Button from '../components/Button';
 
 
+const TITLE = 'Login';
+
 /**
  * 
  * @param {*} state 
@@ -10,6 +12,7 @@ import Button from '../components/Button';
  */
 const mapStateToProps = (state, ownProps) => {
   return {
+    title: ownProps.title || TITLE,
     active: !state.auth.authenticated,
     user_id: state.auth.user_id,
     account_id: state.auth.account_id,

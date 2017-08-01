@@ -26,13 +26,11 @@ const StatusBar = ({
         animated={animated}
         backgroundColor={backgroundColor}
       />
-      { Platform.OS === 'android' ?
-        <View
-          style={{
-            height: ANDROID_TOPBAR_HEIGHT,
-          }}
-        />
-      : null }
+      <View
+        style={{
+          height: ANDROID_TOPBAR_HEIGHT,
+        }}
+      />
     </View>
   );
 }
