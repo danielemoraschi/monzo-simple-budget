@@ -1,11 +1,11 @@
 import React from 'react';
 import { StackNavigator } from 'react-navigation';
 import { 
-  View, 
-  Text, 
-  StatusBar 
+  View,
+  Text,
 } from 'react-native';
 
+import StatusBar from '../components/StatusBar';
 import AuthForm from './AuthForm';
 import LoginButton from './LoginButton';
 import LogoutButton from './LogoutButton';
@@ -19,11 +19,11 @@ class HomeScreen extends React.Component {
   render() {
     return (
       <View>
-          <StatusBar barStyle="dark-content" />
-          <AuthForm />
-          <LoginButton title={'Login'} />
-          <LogoutButton title={'Logout'} />
-          <GetBalanceButton title={'Get Balance'} />
+        <StatusBar />
+        <AuthForm />
+        <LoginButton title={'Login'} />
+        <LogoutButton title={'Logout'} />
+        <GetBalanceButton title={'Get Balance'} />
       </View>
     );
   }
