@@ -28,7 +28,7 @@ const AuthFields = ({
       <Text>Access token</Text>
       <TextInputField
         value={access_token}
-        onChangeText={(access_token) => onChangeText('access_token', text)}
+        onChangeText={(text) => onChangeText('access_token', text)}
       />
     </View>
   )

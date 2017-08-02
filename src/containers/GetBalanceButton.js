@@ -20,16 +20,23 @@ const mapStateToProps = (state, ownProps) => {
 /**
  * 
  * @param {*} dispatch 
+ * @param {*} state 
+ */
+const dispatchGetBalance = (dispatch, state) => getBalance(
+    state.auth.account_id, 
+    state.auth.access_token
+  )
+  .then(obj => dispatch(obj))
+
+/**
+ * 
+ * @param {*} dispatch 
  * @param {*} ownProps 
  */
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onPress: () => dispatch(
-      (dispatch, getState) => getBalance(
-        getState().auth.account_id, 
-        getState().auth.access_token
-      )
-      .then(obj => dispatch(obj))
+      (dispatch, getState) => dispatchGetBalance(dispatch, getState())
   )}
 }
 

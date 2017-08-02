@@ -1,8 +1,9 @@
 import React from 'react';
 import { View } from 'react-native';
-import StatusBar from '../components/StatusBar';
 
-import GetBalanceButton from './GetBalanceButton';
+import StatusBar from '../components/StatusBar';
+//import GetBalanceButton from './GetBalanceButton';
+import BalanceScreen from './BalanceScreen';
 
 
 class HomeScreen extends React.Component {
@@ -15,7 +16,7 @@ class HomeScreen extends React.Component {
     return (
       <View>
         <StatusBar />
-        <GetBalanceButton />
+        <BalanceScreen />
       </View>
     );
   }

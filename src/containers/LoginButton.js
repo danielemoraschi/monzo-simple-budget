@@ -23,17 +23,24 @@ const mapStateToProps = (state, ownProps) => {
 /**
  * 
  * @param {*} dispatch 
+ * @param {*} state 
+ */
+const dispatchSaveAccountCredentials = (state) => saveAccountCredentials(
+  state.auth.user_id, 
+  state.auth.account_id, 
+  state.auth.access_token
+);
+
+/**
+ * 
+ * @param {*} dispatch 
  * @param {*} ownProps 
  */
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onPress: () => dispatch(
       (dispatch, getState) => dispatch(
-        saveAccountCredentials(
-          getState().auth.user_id, 
-          getState().auth.account_id, 
-          getState().auth.access_token
-        )
+        dispatchSaveAccountCredentials(getState())
       )
     )
   }

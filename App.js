@@ -7,13 +7,14 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import { createLogger } from 'redux-logger';
 import thunk from 'redux-thunk'
+import multi from 'redux-multi'
 
-import MonzoApp from './src/containers/MonzoApp';
+import MonzoApp from './MonzoApp';
 import uiTheme from './src/constants/Theme';
 import reducers from './src/reducers';
 
 
-const middleware = [ thunk ];
+const middleware = [ thunk, multi ];
 if (process.env.NODE_ENV !== 'production') {
   middleware.push(createLogger());
 }

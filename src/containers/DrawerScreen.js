@@ -1,6 +1,8 @@
 import React from 'react';
 import { View } from 'react-native';
 
+import StatusBar from '../components/StatusBar';
+import MonzoAuthLink from '../components/MonzoAuthLink';
 import AuthForm from './AuthForm';
 import LoginButton from './LoginButton';
 import LogoutButton from './LogoutButton';
@@ -15,9 +17,11 @@ class DrawerScreen extends React.Component {
   render() {
     return (
       <View>
+        <StatusBar />
         <AuthForm />
         <LoginButton />
         <LogoutButton />
+        <MonzoAuthLink />
       </View>
     );
   }
