@@ -9,9 +9,9 @@ import {
 
 
 /**
- * 
- * @param {*} client_id 
- * @param {*} client_secret 
+ *
+ * @param {*} client_id
+ * @param {*} client_secret
  */
 export const saveAccountCredentials = (user_id, account_id, access_token) => {
   return {
@@ -23,9 +23,9 @@ export const saveAccountCredentials = (user_id, account_id, access_token) => {
 }
 
 /**
- * 
- * @param {*} key 
- * @param {*} value 
+ *
+ * @param {*} key
+ * @param {*} value
  */
 export const updateAccountCredentials = (key, value) => {
   return {
@@ -60,17 +60,31 @@ function receiveBalance(json) {
 
 /**
  * 
+ * @param {*} account_id 
+ * @param {*} access_token 
  */
 export const getBalance = (account_id, access_token) => {
-  return fetch(`${monzo.API_ENDPOINT}/balance?account_id=${account_id}`, {
-      method: 'GET',
-      headers: {
-        'Authorization': 'Bearer ' + access_token,
-      }
-    })
-    .then(
-      response => response.json(),
-      error => console.log('An error occured.', error)
-    )
-    .then(json => receiveBalance(json));
+  return monzo.fetchAPI(
+    monzo.BALANCE_API,
+    account_id,
+    access_token
+  )
+  .then(json => receiveBalance(json));
+}
+
+/**
+ * 
+ * @param {*} account_id 
+ * @param {*} access_token 
+ */
+export const getTransactionsSince = (last_transaction_id, account_id, access_token) => {
+  return monzo.fetchAPI(
+    monzo.BALANCE_API,
+    account_id,
+    access_token,
+    {
+      since: last_transaction_id
+    }
+  )
+  .then(json => receiveBalance(json));
 }

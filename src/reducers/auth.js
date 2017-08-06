@@ -6,13 +6,6 @@ import {
 } from '../constants/ActionTypes';
 
 
-// const initialState = {
-//   authenticated: false,
-//   user_id: null,
-//   account_id: null,
-//   access_token: null,
-// }
-
 const initialState = {
   authenticated: false,
   user_id: null,
