@@ -32,6 +32,7 @@
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
     "redux-multi": "^0.1.12",
+    "redux-persist": "^4.8.3",
     "redux-thunk": "^2.2.0",
     "tween-functions": "^1.2.0"
   }

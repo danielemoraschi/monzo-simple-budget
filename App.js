@@ -2,12 +2,13 @@
 
 import React from 'react';
 import { ThemeProvider } from 'react-native-material-ui';
-import { StatusBar } from 'react-native';
+import { StatusBar, AsyncStorage } from 'react-native';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import { createLogger } from 'redux-logger';
-import thunk from 'redux-thunk'
-import multi from 'redux-multi'
+import { persistStore, autoRehydrate } from 'redux-persist';
+import thunk from 'redux-thunk';
+import multi from 'redux-multi';
 
 import MonzoApp from './MonzoApp';
 import uiTheme from './src/constants/Theme';
@@ -21,8 +22,17 @@ if (process.env.NODE_ENV !== 'production') {
 
 const store = createStore(
   reducers,
-  applyMiddleware(...middleware)
+  applyMiddleware(...middleware),
+  autoRehydrate()
 );
+
+persistStore(store, {
+  whitelist: [ 'auth', 'balance', ],
+  'storage': AsyncStorage,
+},
+  () => {
+    console.log('Store rehydration complete.');
+})
 
 export default class App extends React.Component {
   render() {
