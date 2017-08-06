@@ -18,8 +18,8 @@ const mapStateToProps = (state, ownProps) => {
   }
 }
 
-const BalanceScreen = connect(
+const BalanceCard = connect(
   mapStateToProps,
 )(BalanceFigures);
 
-export default BalanceScreen;
+export default BalanceCard;

@@ -4,13 +4,16 @@ import {
   View, 
   Text,
 } from 'react-native';
+import { Card } from 'react-native-material-ui';
 
 
 const BalanceFigures = ({ balance, spend_today }) => {
   return (
     <View>
-      <Text>Balance: {balance}</Text>
-      <Text>Spent today: {spend_today}</Text>
+      <Card>
+        <Text>Balance: {balance}</Text>
+        <Text>Spent today: {spend_today}</Text>
+      </Card>
     </View>
   )
 };

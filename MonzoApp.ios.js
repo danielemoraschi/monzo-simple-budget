@@ -3,18 +3,18 @@ import { DrawerNavigator } from 'react-navigation';
 
 import StatusBar from './src/components/StatusBar';
 import uiTheme from './src/constants/Theme';
-import DrawerScreen from './src/containers/DrawerScreen';
-import HomeScreen from './src/containers/HomeScreen';
+import AuthScreen from './src/containers/AuthScreen';
+import BudgetScreen from './src/containers/BudgetScreen';
 //import DrawerLayout from './deprecated_app/DrawerLayout';
 //import DrawerContent from './deprecated_app/DrawerContent';
 
 
 const MonzoApp = DrawerNavigator({
-  HomeScreen: {
-    screen: HomeScreen,
+  BudgetScreen: {
+    screen: BudgetScreen,
   },
-  DrawerScreen: {
-    screen: DrawerScreen,
+  AuthScreen: {
+    screen: AuthScreen,
   },
 },{
   //contentComponent: props => <DrawerContent {...props} />,

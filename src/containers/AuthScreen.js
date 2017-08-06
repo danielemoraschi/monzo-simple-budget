@@ -8,7 +8,7 @@ import LoginButton from './LoginButton';
 import LogoutButton from './LogoutButton';
 
 
-class DrawerScreen extends React.Component {
+class AuthScreen extends React.Component {
   static navigationOptions = {
     title: 'Login settings',
     drawerLabel: 'Login',
@@ -27,4 +27,4 @@ class DrawerScreen extends React.Component {
   }
 }
 
-export default DrawerScreen;
+export default AuthScreen;
