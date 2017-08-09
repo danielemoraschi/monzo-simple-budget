@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { 
   Button as NativeButton, 
-  Text,
 } from 'react-native';
 
 
@@ -11,12 +10,9 @@ import {
  * @param {*} param0 
  */
 const Button = ({ active, title, onPress }) => {
-  if ( !active ) {
-    return <Text>{title}</Text>
-  }
-
   return (
     <NativeButton
+      disabled={!active}
       onPress={onPress}
       title={title}
     />

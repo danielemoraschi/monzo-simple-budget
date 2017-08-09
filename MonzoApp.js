@@ -18,10 +18,8 @@ const MonzoApp = DrawerNavigator({
 },{
   contentComponent: props => <DrawerContent {...props} />,
   contentOptions: {
-    //activeTintColor: uiTheme.palette.PRIMARY_COLOR,
     style: {
-      borderTopWidth: 24,
-      borderTopColor: 'rgba(0, 0, 0, 0.20)',
+      marginTop: 0,
     },
   }
 });

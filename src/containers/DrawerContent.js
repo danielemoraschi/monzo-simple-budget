@@ -1,49 +1,26 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {
   View,
   Text,
   Image,
 } from 'react-native';
+import { DrawerItems } from 'react-navigation';
 
 import DrawerLayout from '../components/DrawerLayout';
 import Avatar from '../components/Avatar';
 
 
-/**
- * 
- * @param {*} navigate 
- * @param {*} items 
- * @param {*} activeItem 
- */
-const getMenuItemsArray = (navigate, items, activeItem) => {
-  let menuItems = [];
-  items.forEach((element) => {
-    menuItems.push({
-      icon: null,
-      value: element.key,
-      label: element.key,
-      onPress: () => navigate(element.routeName, { name: element.key }),
-      active: activeItem === element.key,
-    });
-  }, this);
-  return menuItems;
-}
-
 class DrawerContentComponent extends React.Component {
   render() {
-    const { navigation, items, activeItemKey } = this.props;
     return (
       <DrawerLayout
         uiTheme={this.context.uiTheme}
         title={'Menu'}
         avatar={<Avatar />}
         footer={<Text>Footer</Text>}
-        menuItems={getMenuItemsArray(
-          navigation.navigate,
-          items,
-          activeItemKey
-        )}
+        menuItems={<DrawerItems {...this.props} />}
       />
     );
   }

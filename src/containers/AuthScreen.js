@@ -1,5 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
+import { Icon } from 'react-native-material-ui';
 
 import StatusBar from '../components/StatusBar';
 import MonzoAuthLink from '../components/MonzoAuthLink';
@@ -10,8 +11,11 @@ import LogoutButton from './LogoutButton';
 
 class AuthScreen extends React.Component {
   static navigationOptions = {
-    title: 'Login settings',
-    drawerLabel: 'Login',
+    title: 'Account settings',
+    drawerLabel: 'Account',
+    drawerIcon: ({ focused, tintColor }) => (
+      <Icon name={'person'} color={tintColor} />
+    ),
   };
 
   render() {
