@@ -1,6 +1,5 @@
 import * as monzo from '../constants/Monzo';
 import {
-  SAVE_ACCOUNT_CREDENTIALS,
   RECEIVE_BALANCE,
 } from '../constants/ActionTypes';
 

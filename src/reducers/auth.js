@@ -1,7 +1,9 @@
+import { Alert } from 'react-native';
 import * as monzo from '../constants/Monzo';
 import {
   UPD_ACCOUNT_CREDENTIALS,
-  SAVE_ACCOUNT_CREDENTIALS,
+  INCOMPLETE_CREDENTIALS,
+  LOGIN,
   LOGOUT,
 } from '../constants/ActionTypes';
 
@@ -25,7 +27,7 @@ export const auth = (state = initialState, action) => {
         ...state,
         [action.key]: action.value
       }
-    case SAVE_ACCOUNT_CREDENTIALS:
+    case LOGIN:
       return {
         ...state,
         authenticated: true,
@@ -41,6 +43,8 @@ export const auth = (state = initialState, action) => {
         //account_id: null,
         access_token: null,
       }
+    case INCOMPLETE_CREDENTIALS:
+      Alert.alert('Please insert authentication credentials.');
     default:
       return state;
   }

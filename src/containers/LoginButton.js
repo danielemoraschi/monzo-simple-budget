@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { saveAccountCredentials } from '../actions/monzo';
+import { login } from '../actions/monzo';
 import Button from '../components/Button';
 
 
@@ -25,7 +25,7 @@ const mapStateToProps = (state, ownProps) => {
  * @param {*} dispatch 
  * @param {*} state 
  */
-const dispatchSaveAccountCredentials = (state) => saveAccountCredentials(
+const dispatchLogin = (state) => login(
   state.auth.user_id, 
   state.auth.account_id, 
   state.auth.access_token
@@ -40,7 +40,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onPress: () => dispatch(
       (dispatch, getState) => dispatch(
-        dispatchSaveAccountCredentials(getState())
+        dispatchLogin(getState())
       )
     )
   }

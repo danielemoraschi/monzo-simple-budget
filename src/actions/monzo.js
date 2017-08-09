@@ -1,7 +1,8 @@
 import * as monzo from '../constants/Monzo';
 import {
   UPD_ACCOUNT_CREDENTIALS,
-  SAVE_ACCOUNT_CREDENTIALS,
+  LOGIN,
+  INCOMPLETE_CREDENTIALS,
   REQUEST_BALANCE,
   RECEIVE_BALANCE,
   LOGOUT,
@@ -13,9 +14,14 @@ import {
  * @param {*} client_id
  * @param {*} client_secret
  */
-export const saveAccountCredentials = (user_id, account_id, access_token) => {
+export const login = (user_id, account_id, access_token) => {
+  if (!user_id || !account_id || !access_token) {
+    return {
+      type: INCOMPLETE_CREDENTIALS,
+    };
+  }
   return {
-    type: SAVE_ACCOUNT_CREDENTIALS,
+    type: LOGIN,
     user_id,
     account_id,
     access_token,
