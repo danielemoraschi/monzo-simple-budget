@@ -5,8 +5,7 @@ import StatusBar from './src/components/StatusBar';
 import uiTheme from './src/constants/Theme';
 import AuthScreen from './src/containers/AuthScreen';
 import BudgetScreen from './src/containers/BudgetScreen';
-//import DrawerLayout from './deprecated_app/DrawerLayout';
-//import DrawerContent from './deprecated_app/DrawerContent';
+import DrawerContent from './src/containers/DrawerContent';
 
 
 const MonzoApp = DrawerNavigator({
@@ -17,7 +16,7 @@ const MonzoApp = DrawerNavigator({
     screen: AuthScreen,
   },
 },{
-  //contentComponent: props => <DrawerContent {...props} />,
+  contentComponent: props => <DrawerContent {...props} />,
   contentOptions: {
     //activeTintColor: uiTheme.palette.PRIMARY_COLOR,
     style: {

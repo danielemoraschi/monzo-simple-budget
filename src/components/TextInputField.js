@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { 
   TextInput, 
-  Text
+  Text,
 } from 'react-native';
 
 /**

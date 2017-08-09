@@ -16,8 +16,8 @@ class BudgetScreen extends React.Component {
     return (
       <View>
         <StatusBar />
-        <GetBalanceButton />
         <BalanceCard />
+        <GetBalanceButton />
       </View>
     );
   }

@@ -25,4 +25,20 @@ export default uiTheme = {
       paddingTop: Platform.OS == 'ios' ? 20 : 0
     },
   },
+  avatarImage: {
+    source: {
+      uri: 'https://facebook.github.io/react/img/logo_og.png',
+    },
+    container: {
+      width: 56,
+      height: 56,
+    },
+  },
+  avatarContainer: {
+    container: {
+      top:20,
+      width: 56,
+      height: 56
+    }
+  },
 };
