@@ -26,7 +26,7 @@ const dispatchGetBalance = (dispatch, state) => getBalance(
     state.auth.account_id, 
     state.auth.access_token
   )
-  .then(obj => dispatch(obj))
+  .then(obj => dispatch(obj));
 
 /**
  * 
@@ -37,7 +37,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onPress: () => dispatch(
       (dispatch, getState) => dispatchGetBalance(dispatch, getState())
-  )}
+    )}
 }
 
 const GetBalanceButton = connect(

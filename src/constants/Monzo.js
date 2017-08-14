@@ -1,6 +1,7 @@
 export const API_ENDPOINT = 'https://api.monzo.com';
 export const AUTH_ENDPOINT = 'https://auth.getmondo.co.uk';
 export const BALANCE_API = 'balance';
+export const ACCOUNTS_API = 'accounts';
 
 
 /**
@@ -21,8 +22,13 @@ function jsonToQueryString(json) {
  * @param {*} queryParameters
  */
 function getAPIURL(api_name, account_id, queryParameters = {}) {
-  let url = `${API_ENDPOINT}/${api_name}?account_id=${account_id}`;
-  return url + '&' + jsonToQueryString(queryParameters);
+  let url = `${API_ENDPOINT}/${api_name}?`;
+  if (account_id) {
+    url = `${url}account_id=${account_id}&`;
+  }
+  let fullUrl = url + jsonToQueryString(queryParameters);
+  console.debug('Fetching Monzo API', fullUrl);
+  return fullUrl;
 }
 
 /**
@@ -34,7 +40,8 @@ function getAPIURL(api_name, account_id, queryParameters = {}) {
  * @param {*} options
  */
 export const fetchAPI = (
-  api_name, account_id, 
+  api_name,
+  account_id,
   access_token, 
   queryParameters = {}, 
   options = {}

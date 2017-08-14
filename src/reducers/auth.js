@@ -41,7 +41,7 @@ export const auth = (state = initialState, action) => {
         authenticated: false,
         //user_id: null,
         //account_id: null,
-        access_token: null,
+        //access_token: null,
       }
     case INCOMPLETE_CREDENTIALS:
       Alert.alert('Please insert authentication credentials.');

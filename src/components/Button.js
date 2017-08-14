@@ -6,8 +6,8 @@ import {
 
 
 /**
- * 
- * @param {*} param0 
+ *
+ * @param {*} param0
  */
 const Button = ({ active, title, onPress }) => {
   return (
