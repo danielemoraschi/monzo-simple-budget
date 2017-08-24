@@ -59,7 +59,7 @@ export const logout = () => {
  */
 function receiveAccount(json) {
   return {
-    type: json.account ? RECEIVE_ACCOUNTS : INVALID_CREDENTIALS,
+    type: json.accounts ? RECEIVE_ACCOUNTS : INVALID_CREDENTIALS,
     accounts: json.accounts,
   }
 }
