@@ -1,5 +1,8 @@
 import { connect } from 'react-redux';
-import { getBalance } from '../actions/monzo';
+import { 
+  getBalance,
+  getTransactionsSince,
+} from '../actions/monzo';
 import Button from '../components/Button';
 
 
@@ -28,6 +31,18 @@ const dispatchGetBalance = (dispatch, state) => getBalance(
   )
   .then(obj => dispatch(obj));
 
+  /**
+ *
+ * @param {*} dispatch
+ * @param {*} state
+ */
+const dispatchGetTransactions = (dispatch, state) => getTransactionsSince(
+    state.transactions.last_transaction_id,
+    state.auth.account_id,
+    state.auth.access_token
+  )
+  .then(obj => dispatch(obj));
+
 /**
  * 
  * @param {*} dispatch 
@@ -36,8 +51,13 @@ const dispatchGetBalance = (dispatch, state) => getBalance(
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onPress: () => dispatch(
-      (dispatch, getState) => dispatchGetBalance(dispatch, getState())
-    )}
+      (dispatch, getState) => {
+        let state = getState();
+        dispatchGetBalance(dispatch, state)
+        dispatchGetTransactions(dispatch, state);
+      }
+    )
+  }
 }
 
 const GetBalanceButton = connect(

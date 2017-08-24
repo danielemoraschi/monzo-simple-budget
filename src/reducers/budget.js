@@ -12,7 +12,6 @@ const initialState = {
   start_date: null,
   end_date: null,
   income: null,
-  last_transaction_id: null,
 }
 
 /**

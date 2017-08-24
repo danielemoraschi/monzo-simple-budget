@@ -5,6 +5,7 @@ import { Icon } from 'react-native-material-ui';
 import StatusBar from '../components/StatusBar';
 import GetBalanceButton from './GetBalanceButton';
 import BalanceCard from './BalanceCard';
+import TransactionList from './TransactionList';
 
 
 class BudgetScreen extends React.Component {
@@ -20,8 +21,9 @@ class BudgetScreen extends React.Component {
     return (
       <View>
         <StatusBar />
-        <BalanceCard />
         <GetBalanceButton />
+        <BalanceCard />
+        <TransactionList />
       </View>
     );
   }

@@ -2,6 +2,7 @@ export const API_ENDPOINT = 'https://api.monzo.com';
 export const AUTH_ENDPOINT = 'https://auth.getmondo.co.uk';
 export const BALANCE_API = 'balance';
 export const ACCOUNTS_API = 'accounts';
+export const TRANSACTIONS_API = 'transactions';
 
 
 /**
