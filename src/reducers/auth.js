@@ -11,7 +11,6 @@ import {
 
 
 const initialState = {
-  authenticated: false,
   user_id: null,
   account_id: null,
   access_token: null,
@@ -37,18 +36,11 @@ export const auth = (state = initialState, action) => {
         access_token: action.access_token,
       }
     case LOGOUT:
-    case INVALID_CREDENTIALS:
       return {
         ...state,
-        authenticated: false,
         //user_id: null,
         //account_id: null,
-        access_token: null,
-      }
-    case RECEIVE_ACCOUNTS:
-      return {
-        ...state,
-        authenticated: true,
+        //access_token: null,
       }
     case INCOMPLETE_CREDENTIALS:
       Alert.alert('Please insert authentication credentials.');

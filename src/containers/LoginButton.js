@@ -23,7 +23,7 @@ const alertInvalidCredentials = () => {
 const mapStateToProps = (state, ownProps) => {
   return {
     title: ownProps.title || TITLE,
-    active: !state.auth.authenticated,
+    active: !state.accounts.authenticated,
     user_id: state.auth.user_id,
     account_id: state.auth.account_id,
     access_token: state.auth.access_token,

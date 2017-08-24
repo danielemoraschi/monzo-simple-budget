@@ -8,6 +8,7 @@ import {
 
 const initialState = {
   list: [],
+  authenticated: false,
 }
 
 /**
@@ -22,11 +23,13 @@ export const accounts = (state = initialState, action) => {
       return {
         ...state,
         list: [],
+        authenticated: false,
       }
     case RECEIVE_ACCOUNTS:
       return {
         ...state,
         list: action.accounts,
+        authenticated: true,
       }
     default:
       return state;
