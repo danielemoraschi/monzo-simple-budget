@@ -27,7 +27,7 @@ const store = createStore(
 );
 
 persistStore(store, {
-  whitelist: [ 'auth', 'balance', ],
+  whitelist: [ 'auth', 'balance', 'transactions', 'budget', ],
   'storage': AsyncStorage,
 },
   () => {
