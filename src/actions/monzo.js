@@ -1,12 +1,14 @@
 import * as monzo from '../constants/Monzo';
 import {
-  UPD_ACCOUNT_CREDENTIALS,
   LOGIN,
+  LOGOUT,
+  UPD_ACCOUNT_CREDENTIALS,
   INCOMPLETE_CREDENTIALS,
+  INVALID_CREDENTIALS,
   REQUEST_BALANCE,
   RECEIVE_BALANCE,
   RECEIVE_ACCOUNTS,
-  LOGOUT,
+  RECEIVE_TRANSACTIONS,
 } from '../constants/ActionTypes';
 
 
@@ -57,7 +59,7 @@ export const logout = () => {
  */
 function receiveAccount(json) {
   return {
-    type: RECEIVE_ACCOUNTS,
+    type: json.account ? RECEIVE_ACCOUNTS : INVALID_CREDENTIALS,
     accounts: json.accounts,
   }
 }
@@ -105,18 +107,27 @@ export const getBalance = (account_id, access_token) => {
 }
 
 /**
+ * 
+ * @param {*} json 
+ */
+function receiveTransactions(json) {
+  return {
+    type: RECEIVE_TRANSACTIONS,
+    list: json.transactions,
+  }
+}
+
+/**
  *
  * @param {*} account_id
  * @param {*} access_token
  */
 export const getTransactionsSince = (last_transaction_id, account_id, access_token) => {
   return monzo.fetchAPI(
-    monzo.BALANCE_API,
+    monzo.TRANSACTIONS_API,
     account_id,
     access_token,
-    {
-      since: last_transaction_id
-    }
+    last_transaction_id ? { since: last_transaction_id } : { limit: 100 }
   )
-  .then(json => json);
+  .then(json => receiveTransactions(json));
 }
