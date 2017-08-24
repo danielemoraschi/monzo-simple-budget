@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
-import { auth } from './auth';
+import { auth_credentials } from './auth-credentials';
 import { balance } from './balance';
-import { accounts } from './accounts';
+import { auth } from './auth';
 import { transactions } from './transactions';
 
 export default combineReducers({
+  auth_credentials,
   auth,
   balance,
-  accounts,
   transactions,
 });

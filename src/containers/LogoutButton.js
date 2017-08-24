@@ -13,7 +13,7 @@ const TITLE = 'Logout';
 const mapStateToProps = (state, ownProps) => {
   return {
     title: ownProps.title || TITLE,
-    active: state.accounts.authenticated
+    active: state.auth.authenticated
   }
 }
 

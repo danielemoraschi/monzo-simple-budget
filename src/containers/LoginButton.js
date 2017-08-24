@@ -23,10 +23,10 @@ const alertInvalidCredentials = () => {
 const mapStateToProps = (state, ownProps) => {
   return {
     title: ownProps.title || TITLE,
-    active: !state.accounts.authenticated,
-    user_id: state.auth.user_id,
-    account_id: state.auth.account_id,
-    access_token: state.auth.access_token,
+    active: !state.auth.authenticated,
+    user_id: state.auth_credentials.user_id,
+    account_id: state.auth_credentials.account_id,
+    access_token: state.auth_credentials.access_token,
   }
 }
 
@@ -36,9 +36,9 @@ const mapStateToProps = (state, ownProps) => {
  * @param {*} state
  */
 const dispatchLogin = (dispatch, state) => dispatch(login(
-  state.auth.user_id,
-  state.auth.account_id,
-  state.auth.access_token
+  state.auth_credentials.user_id,
+  state.auth_credentials.account_id,
+  state.auth_credentials.access_token
 ));
 
 /**
@@ -47,8 +47,8 @@ const dispatchLogin = (dispatch, state) => dispatch(login(
  * @param {*} state
  */
 const dispatchGetAccounts = (dispatch, state, ownProps) => getAccounts(
-    state.auth.account_id,
-    state.auth.access_token
+    state.auth_credentials.account_id,
+    state.auth_credentials.access_token
   )
   .then(obj => {
     if (obj.type === RECEIVE_ACCOUNTS) {

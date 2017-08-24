@@ -39,8 +39,8 @@ DrawerContentComponent.contextTypes = {
  */
 const mapStateToProps = (state, ownProps) => {
   let title = defaultTitle;
-  if (state.accounts.list && state.accounts.list.length) {
-    title = state.accounts.list[0].description;
+  if (state.auth.accounts && state.auth.accounts.length) {
+    title = state.auth.accounts[0].description;
   }
   return {
     title: title

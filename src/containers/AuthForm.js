@@ -14,9 +14,9 @@ import AuthFields from '../components/AuthFields';
  */
 const mapStateToProps = (state, ownProps) => {
   return {
-    user_id: state.auth.user_id,
-    account_id: state.auth.account_id,
-    access_token: state.auth.access_token,
+    user_id: state.auth_credentials.user_id,
+    account_id: state.auth_credentials.account_id,
+    access_token: state.auth_credentials.access_token,
   }
 }
 

@@ -16,7 +16,7 @@ const TITLE = 'Get Balance';
 const mapStateToProps = (state, ownProps) => {
   return {
     title: ownProps.title || TITLE,
-    active: state.accounts.authenticated,
+    active: state.auth.authenticated,
   }
 }
 
@@ -26,8 +26,8 @@ const mapStateToProps = (state, ownProps) => {
  * @param {*} state 
  */
 const dispatchGetBalance = (dispatch, state) => getBalance(
-    state.auth.account_id, 
-    state.auth.access_token
+    state.auth_credentials.account_id, 
+    state.auth_credentials.access_token
   )
   .then(obj => dispatch(obj));
 
@@ -38,8 +38,8 @@ const dispatchGetBalance = (dispatch, state) => getBalance(
  */
 const dispatchGetTransactions = (dispatch, state) => getTransactionsSince(
     state.transactions.last_transaction_id,
-    state.auth.account_id,
-    state.auth.access_token
+    state.auth_credentials.account_id,
+    state.auth_credentials.access_token
   )
   .then(obj => dispatch(obj));
 
