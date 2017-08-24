@@ -9,11 +9,11 @@ import DrawerContent from './src/containers/DrawerContent';
 
 
 const MonzoApp = DrawerNavigator({
-  BudgetScreen: {
-    screen: BudgetScreen,
-  },
   AuthScreen: {
     screen: AuthScreen,
+  },
+  BudgetScreen: {
+    screen: BudgetScreen,
   },
 },{
   contentComponent: props => <DrawerContent {...props} />,
