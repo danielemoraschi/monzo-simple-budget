@@ -23,7 +23,7 @@ class AuthScreen extends React.Component {
       <View>
         <StatusBar />
         <AuthForm />
-        <LoginButton />
+        <LoginButton navigation={this.props.navigation} />
         <LogoutButton />
         <MonzoAuthLink />
       </View>

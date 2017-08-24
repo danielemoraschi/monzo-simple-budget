@@ -2,6 +2,7 @@ import * as monzo from '../constants/Monzo';
 import {
   LOGOUT,
   RECEIVE_ACCOUNTS,
+  INVALID_CREDENTIALS,
 } from '../constants/ActionTypes';
 
 
@@ -15,15 +16,14 @@ const initialState = {
  * @param {*} action 
  */
 export const accounts = (state = initialState, action) => {
-  console.log('-----------------------------------------------'+action.type, '2', action);
   switch (action.type) {
     case LOGOUT:
+    case INVALID_CREDENTIALS:
       return {
         ...state,
         list: [],
       }
     case RECEIVE_ACCOUNTS:
-      console.log(RECEIVE_ACCOUNTS, 2, action.accounts)
       return {
         ...state,
         list: action.accounts,
